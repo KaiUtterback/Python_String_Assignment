@@ -1,6 +1,6 @@
-'''
-Question 1:
+# Question 1
 
+'''
 Task 1: Code Correction
 You are provided with a scripot that is supposed to format customer names by ensuring the first letter is
 uppercase and the rest are lowercase, regardless of how the data was entered.
@@ -90,3 +90,5 @@ while True:
     continue_program = input("Would you like to generate another username? y or n: ")
     if continue_program != 'y':
         break
+
+# Question 2
