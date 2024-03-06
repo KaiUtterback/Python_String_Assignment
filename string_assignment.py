@@ -92,3 +92,43 @@ while True:
         break
 
 # Question 2
+    
+'''
+Task 1: Keyword Highlighter
+Write a program that searches through a series of product reviews for keywords such as "good", "excellent", "bad", "poor", and "average". 
+Print out each review with the keywords in uppercase so they stand out.
+'''
+print()
+
+def highlight_keywords(review):
+    keywords = ["good", "excellent", "bad", "poor", "average"]
+    words = review.split()
+    highlighted_words = []
+
+    for word in words:
+        if word.lower() in keywords:
+            highlighted_words.append(word.upper())
+        else:
+            highlighted_words.append(word)
+
+    highlighted_review = ' '.join(highlighted_words)
+    return highlighted_review
+
+reviews = [
+    "The product is good, but the service is poor.",
+    "Excellent product quality!",
+    "Bad experience with this product.",
+    "Average performance, nothing special."
+]
+
+print("Highlighted Reviews:")
+for review in reviews:
+    highlighted_review = highlight_keywords(review)
+    print("- ", highlighted_review)
+
+'''
+Task 2: Sentiment Tally
+Develop a function that tallies the number of positive and negative words in each review. 
+Use a predefined list of positive and negative words to check against. 
+The function should return the count of positive and negative words for each review.
+'''
