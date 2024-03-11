@@ -127,8 +127,70 @@ for review in reviews:
     print("- ", highlighted_review)
 
 '''
-Task 2: Sentiment Tally
+Task 2: 
 Develop a function that tallies the number of positive and negative words in each review. 
 Use a predefined list of positive and negative words to check against. 
 The function should return the count of positive and negative words for each review.
 '''
+print()
+
+def tally_sentiment(review, positive_words, negative_words):
+    positive_count = 0
+    negative_count = 0
+
+    words = review.split()
+
+    for word in words:
+        if word.lower() in positive_words:
+            positive_count += 1
+        elif word.lower() in negative_words:
+            negative_count += 1
+
+    return positive_count, negative_count
+
+positive_words = ["good", "excellent", "great", "awesome", "superb"]
+negative_words = ["bad", "poor", "terrible", "awful", "horrible"]
+
+reviews = [
+    "The product is good, but the service is poor.",
+    "Excellent product quality!",
+    "Bad experience with this product.",
+    "Average performance, nothing special."
+]
+
+print(reviews)
+print()
+print("Sentiment Tally:")
+for index, review in enumerate(reviews):
+    positive_count, negative_count = tally_sentiment(review, positive_words, negative_words)
+    print(f"Review {index + 1}: Positive words: {positive_count}, Negative words: {negative_count}")
+
+'''
+Task 3: Review Summary
+Implement a script that takes the first 50 characters of a review and appends "…" to create a summary. 
+Ensure that the summary does not cut off in the middle of a word.
+'''
+print()
+
+def create_review_summary(review):
+    if len(review) <= 50:
+        return review
+    else:
+        last_space_index = review[:50].rfind(' ')
+        if last_space_index == -1:
+            summary = review[:50] + "..."
+        else:
+            summary = review[:last_space_index] + "..."
+        return summary
+
+reviews = [
+    "The product is good, but the service is poor. Overall, not satisfied with the experience.",
+    "Excellent product quality, fast delivery, and great customer service!",
+    "Bad experience with this product. It arrived damaged and the customer support was unhelpful.",
+    "Average performance, nothing special. Expected better quality for the price."
+]
+
+print("Review Summaries:")
+for index, review in enumerate(reviews):
+    summary = create_review_summary(review)
+    print(f"Review {index + 1}: {summary}")
